@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Gestão de Motoboys</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Motoboys</h1>
+        <ul class="motoboys-list" id="motoboys-list">
+            <!-- Lista de motoboys -->
+        </ul>
+        <div class="motoboy-details" id="motoboy-details">
+            <h2>Detalhes do Motoboy</h2>
+            <p><strong>Nome:</strong> <span id="detail-name"></span></p>
+            <p><strong>Placa do Veículo:</strong> <span id="detail-plate"></span></p>
+            <p><strong>Telefone:</strong> <span id="detail-phone"></span></p>
+            <p><strong>Email:</strong> <span id="detail-email"></span></p>
+            <button id="edit-button" onclick="editMotoboy()">Editar</button>
+            <button id="delete-button" onclick="deleteMotoboy()">Excluir</button>
+        </div>
+    </div>
+
+    <script>
+        // Array de objetos
+        const motoboys = [
+            { name: 'Motoboy 1', plate: 'ABC-1234', phone: '(11) 1234-5678', email: 'motoboy1@email.com' },
+            { name: 'Motoboy 2', plate: 'DEF-5678', phone: '(22) 9876-5432', email: 'motoboy2@email.com' },
+            { name: 'Motoboy 3', plate: 'UDP-0247', phone: '(22) 9777-0077', email: 'motoboy3@email.com' }
+        ];
+
+        const motoboysList = document.getElementById('motoboys-list');
+        const motoboyDetails = document.getElementById('motoboy-details');
+
+        motoboys.forEach(motoboy => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <span>${motoboy.name}</span>
+                <button class="details-button" onclick="showDetails('${motoboy.name}', '${motoboy.plate}', '${motoboy.phone}', '${motoboy.email}')">Ver Detalhes</button>                
+            `;
+            motoboysList.appendChild(listItem);
+        });
+
+        function showDetails(name, plate, phone, email) {
+            document.getElementById('detail-name').innerText = name;
+            document.getElementById('detail-plate').innerText = plate;
+            document.getElementById('detail-phone').innerText = phone;
+            document.getElementById('detail-email').innerText = email;
+
+            motoboyDetails.style.display = 'block';
+        }
+
+        function editMotoboy(name) {            
+            alert(`Editar motoboy ainda não disponivel!!`);
+        }
+
+        function deleteMotoboy(name) {            
+            alert(`Excluir motoboy ainda não disponivel!!`);
+        }
+
+    </script>
+</body>
+</html>
